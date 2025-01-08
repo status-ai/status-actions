@@ -14,7 +14,7 @@ jobs:
       - name: Send secrets to my-app.com
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          REPO_PATH: ${{  variabels.REPO_PATH }}
+          REPO_PATH: ${{  variables.REPO_PATH }}
           SLACK_USER_TOKEN: ${{ secrets.SLACK_USER_TOKEN }}
           LOOKBACK_DAYS: ${{ variables.LOOKBACK_DAYS }}
           SLACK_TEAM_ID: ${{ secrets.SLACK_TEAM_ID }}
