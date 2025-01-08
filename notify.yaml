@@ -1,0 +1,27 @@
+name: Send Secrets to My App
+
+on:
+  workflow_dispatch:
+
+jobs:
+  send-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Send secrets to my-app.com
+        env:
+          SECRET_1: ${{ secrets.SECRET_1 }}
+          SECRET_2: ${{ secrets.SECRET_2 }}
+          SECRET_3: ${{ secrets.SECRET_3 }}
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d '{
+              "secret_1": "'"$SECRET_1"'",
+              "secret_2": "'"$SECRET_2"'",
+              "secret_3": "'"$SECRET_3"'"
+            }' \
+            https://my-app.com
