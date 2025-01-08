@@ -31,7 +31,7 @@ jobs:
               "github_token": "'"$GITHUB_TOKEN"'",
               "repo_path": "'"$REPO_PATH"'",
               "slack_user_token": "'"$SLACK_USER_TOKEN"'",
-              "lookback_days": "'"$LOOKBACK_DAYS"'",
+              "lookback_days": '$LOOKBACK_DAYS',
               "slack_team_id": "'"$SLACK_TEAM_ID"'",
               "slack_webhook_url": "'"$SLACK_WEBHOOK_URL"'"
               
