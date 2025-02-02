@@ -1,4 +1,4 @@
-name: Send Secrets to My App
+name: Get repo status
 
 on:
   workflow_dispatch:
@@ -20,6 +20,7 @@ jobs:
           LOOKBACK_DAYS: ${{ vars.LOOKBACK_DAYS }}
           SLACK_TEAM_ID: ${{ secrets.SLACK_TEAM_ID }}
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} 
+          RECIPIENTS: ${{ vars.RECIPIENTS }}
           
           
           
@@ -35,10 +36,11 @@ jobs:
               "slack_user_token": "'"$SLACK_USER_TOKEN"'",
               "lookback_days": '$LOOKBACK_DAYS',
               "slack_team_id": "'"$SLACK_TEAM_ID"'",
-              "slack_webhook_url": "'"$SLACK_WEBHOOK_URL"'"
+              "slack_webhook_url": "'"$SLACK_WEBHOOK_URL"'",
+              "to_email": "'"$RECIPIENTS"'"
               
               
               
               
             }' \
-            https://seal-app-3rqj7.ondigitalocean.app/status
+            https://runstatus.dev/api/v0/status
