@@ -16,14 +16,14 @@ echo "Executing GitHub Repo Status Notifier..."
 
 curl -X POST \
   -H "Content-Type: application/json" \
-  -d "{
-    \"github_token\": \"$GITHUB_TOKEN\",
-    \"repo_name\": \"$REPO_NAME\",
-    \"repo_owner\": \"$REPO_OWNER\",
-    \"slack_user_token\": \"$SLACK_USER_TOKEN\",
-    \"lookback_days\": $LOOKBACK_DAYS,
-    \"slack_team_id\": \"$SLACK_TEAM_ID\",
-    \"slack_webhook_url\": \"$SLACK_WEBHOOK_URL\",
-    \"to_email\": '"$RECIPIENTS"'
-  }" \
+  -d '{
+    "github_token": "'"$GITHUB_TOKEN"'",
+    "repo_name": "'"$REPO_NAME"'",
+    "repo_owner": "'"$REPO_OWNER"'",
+    "slack_user_token": "'"$SLACK_USER_TOKEN"'",
+    "lookback_days": '"$LOOKBACK_DAYS"',
+    "slack_team_id": "'"$SLACK_TEAM_ID"'",
+    "slack_webhook_url": "'"$SLACK_WEBHOOK_URL"'",
+    "to_email": '"$RECIPIENTS"'
+  }' \
   https://runstatus.dev/api/v0/status
