@@ -10,7 +10,7 @@ SLACK_USER_TOKEN=$4
 LOOKBACK_DAYS=$5
 SLACK_TEAM_ID=$6
 SLACK_WEBHOOK_URL=$7
-RECIPIENTS='[\"tamir.lieb2@gmail.com\", \"eitanl95@gmail.com\"]'
+RECIPIENTS=$8
 
 echo "Executing GitHub Repo Status Notifier..."
 
