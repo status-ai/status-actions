@@ -13,7 +13,7 @@ jobs:
 
       - name: Print RECIPIENTS
         run: |
-          echo "RECIPIENTS value: vars.RECIPIENTS"
+          echo "RECIPIENTS value: ${{ vars.RECIPIENTS }}"
 
       - name: Run Custom Action to Send Secrets to My App
       
