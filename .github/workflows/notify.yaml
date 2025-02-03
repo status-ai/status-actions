@@ -11,11 +11,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      
+      - name: Print recipients to debug
+        run: echo ${{ vars.RECIPIENTS }}
 
       - name: Run Custom Action to Send Secrets to My App
-        env: 
-          RECIPIENTS: ${{ vars.RECIPIENTS }}
+  
         uses: ./.github/actions/runstatus-action
         with:
           github_token: ${{ secrets.GH_TOKEN }}
@@ -25,4 +25,4 @@ jobs:
           lookback_days: ${{ vars.LOOKBACK_DAYS }}
           slack_team_id: ${{ secrets.SLACK_TEAM_ID }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          recipients: $RECIPIENTS
+          recipients: ${{ vars.RECIPIENTS }}
