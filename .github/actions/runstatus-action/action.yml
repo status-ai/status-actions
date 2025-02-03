@@ -25,7 +25,7 @@ inputs:
     required: false
   recipients:
     description: "Comma-separated list of email recipients"
-    default: ["tamir.lieb2@gmail.com", "eitanl95@gmail.com"]
+    default: "["tamir.lieb2@gmail.com", "eitanl95@gmail.com"]"
 runs:
   using: "docker"
   image: "Dockerfile"
