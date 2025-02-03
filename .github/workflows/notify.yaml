@@ -25,4 +25,4 @@ jobs:
           lookback_days: ${{ vars.LOOKBACK_DAYS }}
           slack_team_id: ${{ secrets.SLACK_TEAM_ID }}
           slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          recipients: '["tamir.lieb2@gmail.com", "eitanl95@gmail.com"]'
+          to_email: ${{ vars.RECIPIENTS }}
