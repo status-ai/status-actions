@@ -13,7 +13,8 @@ SLACK_WEBHOOK_URL=$7
 RECIPIENTS=$8
 
 echo "Executing GitHub Repo Status Notifier..."
-echo $RECIPIENTS
+echo "$RECIPIENTS"
+
 curl -X POST \
   -H "Content-Type: application/json" \
   -d '{
