@@ -27,5 +27,5 @@ inputs:
     description: "Comma-separated list of email recipients"
     required: false
 runs:
-  using: "bash"
-  main: "entrypoint.sh"
+  using: "docker"
+  image: "Dockerfile"
