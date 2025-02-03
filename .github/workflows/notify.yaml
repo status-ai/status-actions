@@ -17,12 +17,12 @@ jobs:
       - name: Run Custom Action to Send Secrets to My App
   
         uses: ./.github/actions/runstatus-action
-        with:
-          github_token: ${{ secrets.GH_TOKEN }}
-          repo_name: ${{ vars.REPO_NAME }}
-          repo_owner: ${{ vars.REPO_OWNER }}
-          slack_user_token: ${{ secrets.SLACK_USER_TOKEN }}
-          lookback_days: ${{ vars.LOOKBACK_DAYS }}
-          slack_team_id: ${{ secrets.SLACK_TEAM_ID }}
-          slack_webhook_url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          recipients: '["tamir.lieb2@gmail.com", "eitanl95@gmail.com"]'
+        env:  # Use `env` to set environment variables
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          REPO_NAME: ${{ vars.REPO_NAME }}
+          REPO_OWNER: ${{ vars.REPO_OWNER }}
+          SLACK_USER_TOKEN: ${{ secrets.SLACK_USER_TOKEN }}
+          LOOKBACK_DAYS: ${{ vars.LOOKBACK_DAYS }}
+          SLACK_TEAM_ID: ${{ secrets.SLACK_TEAM_ID }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+          RECIPIENTS: ${{ vars.RECIPIENTS }} 

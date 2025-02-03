@@ -3,19 +3,16 @@
 set -e
 
 # Capture inputs as environment variables
-GITHUB_TOKEN=$1
-REPO_NAME=$2
-REPO_OWNER=$3
-SLACK_USER_TOKEN=$4
-LOOKBACK_DAYS=$5
-SLACK_TEAM_ID=$6
-SLACK_WEBHOOK_URL=$7
-RECIPIENTS=$8
-
-
 echo "Executing GitHub Repo Status Notifier..."
-echo "Recipients: $RECIPIENTS"
-echo "Repo Name: $REPO_NAME"
+
+echo "GITHUB_TOKEN: $GITHUB_TOKEN"
+echo "REPO_NAME: $REPO_NAME"
+echo "REPO_OWNER: $REPO_OWNER"
+echo "SLACK_USER_TOKEN: $SLACK_USER_TOKEN"
+echo "LOOKBACK_DAYS: $LOOKBACK_DAYS"
+echo "SLACK_TEAM_ID: $SLACK_TEAM_ID"
+echo "SLACK_WEBHOOK_URL: $SLACK_WEBHOOK_URL"
+echo "RECIPIENTS: $RECIPIENTS"  # This should now print the value of the recipients
 
 curl -X POST \
   -H "Content-Type: application/json" \
@@ -27,6 +24,6 @@ curl -X POST \
     "lookback_days": '"$LOOKBACK_DAYS"',
     "slack_team_id": "'"$SLACK_TEAM_ID"'",
     "slack_webhook_url": "'"$SLACK_WEBHOOK_URL"'",
-    "to_email": ["tamir.lieb2@gmail.com", "eitanl95@gmail.com"]
+    "to_email": '"$RECIPIENTS"'
   }' \
   https://runstatus.dev/api/v0/status
