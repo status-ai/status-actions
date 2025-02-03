@@ -15,6 +15,7 @@ RECIPIENTS=$8
 
 echo "Executing GitHub Repo Status Notifier..."
 echo "Recipients: $RECIPIENTS"
+echo "Repo Name: $REPO_NAME"
 
 curl -X POST \
   -H "Content-Type: application/json" \
