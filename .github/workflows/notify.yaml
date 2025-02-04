@@ -2,6 +2,22 @@ name: Get repo status
 
 on:
   workflow_dispatch:
+    inputs:
+      repo_name:
+        description: "GitHub repository name"
+        required: true
+        default: "my-repo"      # Change as needed
+      repo_owner:
+        description: "GitHub repository owner"
+        required: true
+        default: "my-owner"     # Change as needed
+      lookback_days:
+        description: "Number of days to look back for issues"
+        required: false
+        default: "3"
+      recipients:
+        description: "Comma-separated list of email recipients"
+        required: false
 
 jobs:
   send-secrets:
@@ -11,18 +27,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Print recipients to debug
-        run: echo ${{ vars.RECIPIENTS }}
-
       - name: Run Custom Action to Send Secrets to My App
-  
         uses: ./.github/actions/runstatus-action
-        env:  # Use `env` to set environment variables
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
-          REPO_NAME: ${{ vars.REPO_NAME }}
-          REPO_OWNER: ${{ vars.REPO_OWNER }}
-          SLACK_USER_TOKEN: ${{ secrets.SLACK_USER_TOKEN }}
-          LOOKBACK_DAYS: ${{ vars.LOOKBACK_DAYS }}
-          SLACK_TEAM_ID: ${{ secrets.SLACK_TEAM_ID }}
-          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
-          RECIPIENTS: ${{ vars.RECIPIENTS }} 
+        with:
+          repo_name: ${{ github.event.inputs.repo_name }}
+          repo_owner: ${{ github.event.inputs.repo_owner }}
+          lookback_days: ${{ github.event.inputs.lookback_days }}
+          recipients: ${{ github.event.inputs.recipients }}
