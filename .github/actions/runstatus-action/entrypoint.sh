@@ -2,10 +2,7 @@
 
 set -e
 
-REPO_NAME=$1
-REPO_OWNER=$2
-LOOKBACK_DAYS=$3
-RECIPIENTS=$4
+
 
 
 # Capture inputs as environment variables
