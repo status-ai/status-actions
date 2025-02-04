@@ -14,15 +14,13 @@ inputs:
   slack_team_id:
     description: "Slack team ID"
     required: false
-  slack_webhook_url:
-    description: "Slack webhook URL"
-    required: false
   recipients:
     description: "Comma-separated list of email recipients"
     required: false
 env:
   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
   SLACK_USER_TOKEN: ${{ secrets.SLACK_USER_TOKEN }}
+  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 runs:
   using: "docker"
   image: "Dockerfile"
