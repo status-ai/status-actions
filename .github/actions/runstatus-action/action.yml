@@ -8,10 +8,7 @@ inputs:
   repo_owner:
     description: "GitHub repository owner"
     required: true
-  lookback_days:
-    description: "Number of days to look back for issues"
-    default: 7
-    
+  
   slack_team_id:
     description: "Slack team ID"
     required: false

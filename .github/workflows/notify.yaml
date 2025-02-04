@@ -33,5 +33,4 @@ jobs:
           SLACK_TEAM_ID: ${{ secrets.SLACK_TEAM_ID }}
           REPO_NAME: ${{ github.event.inputs.repo_name }}
           REPO_OWNER: ${{ github.event.inputs.repo_owner }}
-          LOOKBACK_DAYS: ${{ github.event.inputs.lookback_days }}
           RECIPIENTS: ${{ github.event.inputs.recipients }}

@@ -12,7 +12,6 @@ echo "Executing GitHub Repo Status Notifier..."
 
 echo "REPO_NAME: $REPO_NAME"
 echo "REPO_OWNER: $REPO_OWNER"
-echo "LOOKBACK_DAYS: $LOOKBACK_DAYS"
 echo "RECIPIENTS: $RECIPIENTS"
 
 curl -X POST \
@@ -22,7 +21,6 @@ curl -X POST \
     "repo_name": "'"$REPO_NAME"'",
     "repo_owner": "'"$REPO_OWNER"'",
     "slack_user_token": "'"$SLACK_USER_TOKEN"'",
-    "lookback_days": '"$LOOKBACK_DAYS"',
     "slack_team_id": "'"$SLACK_TEAM_ID"'",
     "slack_webhook_url": "'"$SLACK_WEBHOOK_URL"'",
     "to_email": '["$RECIPIENTS"]'
