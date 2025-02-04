@@ -2,21 +2,15 @@ name: "GitHub Issue Status Notifier"
 description: "Sends GitHub repo status and tasks to a specified service via API."
 author: "status-ai"
 inputs:
-  github_token:
-    description: "GitHub API token"
-    required: true
   repo_name:
     description: "GitHub repository name"
     required: true
   repo_owner:
     description: "GitHub repository owner"
     required: true
-  slack_user_token:
-    description: "Slack user token"
-    required: false
   lookback_days:
     description: "Number of days to look back for issues"
-    default: "3"
+    default: 3
   slack_team_id:
     description: "Slack team ID"
     required: false
@@ -26,6 +20,9 @@ inputs:
   recipients:
     description: "Comma-separated list of email recipients"
     required: false
+env:
+  GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+  SLACK_USER_TOKEN: ${{ secrets.SLACK_USER_TOKEN }}
 runs:
   using: "docker"
   image: "Dockerfile"
