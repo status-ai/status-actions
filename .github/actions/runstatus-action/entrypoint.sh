@@ -11,7 +11,6 @@ echo "Executing GitHub Repo Status Notifier..."
 echo "REPO_NAME: $REPO_NAME"
 echo "REPO_OWNER: $REPO_OWNER"
 echo "LOOKBACK_DAYS: $LOOKBACK_DAYS"
-echo "SLACK_TEAM_ID: $SLACK_TEAM_ID"
 echo "RECIPIENTS: $RECIPIENTS"
 
 curl -X POST \
