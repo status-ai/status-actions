@@ -20,7 +20,7 @@ on:
         required: false
 
 jobs:
-  send-secrets:
+  get-status:
     runs-on: ubuntu-latest
 
     steps:
@@ -29,6 +29,10 @@ jobs:
 
       - name: Run Custom Action to Send Secrets to My App
         uses: ./.github/actions/runstatus-action
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          SLACK_USER_TOKEN: ${{ secrets.SLACK_USER_TOKEN }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         with:
           repo_name: ${{ github.event.inputs.repo_name }}
           repo_owner: ${{ github.event.inputs.repo_owner }}
