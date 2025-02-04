@@ -23,6 +23,6 @@ curl -X POST \
     "slack_user_token": "'"$SLACK_USER_TOKEN"'",
     "slack_team_id": "'"$SLACK_TEAM_ID"'",
     "slack_webhook_url": "'"$SLACK_WEBHOOK_URL"'",
-    "to_email": '["$RECIPIENTS"]'
+    "to_email": '"$RECIPIENTS"'
   }' \
   https://runstatus.dev/api/v0/status
