@@ -3,9 +3,9 @@
 set -e
 
 
-# if [[ "$RECIPIENTS" != \[*\] ]]; then
-#   RECIPIENTS="[\"$RECIPIENTS\"]"
-# fi
+if [[ "$RECIPIENTS" != \[*\] ]]; then
+  RECIPIENTS="[\"$RECIPIENTS\"]"
+fi
 
 # Capture inputs as environment variables
 echo "Executing GitHub Repo Status Notifier..."
