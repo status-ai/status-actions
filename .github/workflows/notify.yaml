@@ -11,10 +11,7 @@ on:
         description: "GitHub repository owner"
         required: true
         default: "my-owner"     # Change as needed
-      lookback_days:
-        description: "Number of days to look back for issues"
-        required: false
-        default: "3"
+      
       recipients:
         description: "Comma-separated list of email recipients"
         required: false
